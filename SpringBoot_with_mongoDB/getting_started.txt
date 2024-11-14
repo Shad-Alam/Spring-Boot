@@ -1,0 +1,43 @@
+
+	Getting started with mongodb ::
+	
+	Tutorial Link :: (Programming teachie)
+	https://www.youtube.com/watch?v=orVwJTzsk3w&list=PLSVW22jAG8pCVw7fgY89GTsJet9-OOp-Q&index=2
+
+	Steps ::
+		1. install community server
+		   https://www.mongodb.com/try/download/community
+		   
+		2. spring initializer
+			- spring web
+			- spring data mongodb
+			- testcontainer
+			
+			https://start.spring.io/
+			
+		3. open with intellij idea
+		
+		4. define on application.properties file
+			Two way ::
+				1. 
+					spring.data.mongdb.host=
+					spring.data.mongdb.port=
+					spring.data.mongdb.username=
+					spring.data.mongdb.password=
+					spring.data.mongdb.database=
+					
+				2. spring.data.mongodb.uri=mongodb://localhost:27817/expense_tracker
+				
+				 need to create "expense_tracker" database on mongodb
+				 
+				 Mongodb Editor ::
+					1. Mongo Compass
+					2. Studio 3T Core
+
+	
+	Tutorial Step playlist::
+		1. Spring Data Mongodb 
+		
+		2. Spring boot Microservice
+		
+		3
