@@ -8,6 +8,9 @@
 		1. install community server
 		   https://www.mongodb.com/try/download/community
 		   
+		   :: Installation process ::
+			https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+			
 		2. spring initializer
 			- spring web
 			- spring data mongodb
@@ -31,8 +34,18 @@
 				 need to create "expense_tracker" database on mongodb
 				 
 				 Mongodb Editor ::
-					1. Mongo Compass
-					2. Studio 3T Core
+					1. Mongo Compass (free)
+					
+						https://www.mongodb.com/docs/compass/current/install/
+						
+						sudo systemctl status mongod
+						
+						sudo systemctl start mongod
+						
+						sudo systemctl stop mongod
+
+						
+					2. Studio 3T Core (paid)
 
 	
 	Tutorial Step playlist::
