@@ -22,8 +22,8 @@ public class InventoryServiceApplication {
 			inventory1.setQuantity(1000);
 
 			Inventory inventory2 = new Inventory();
-			inventory2.setSkuCode("samsung");
-			inventory2.setQuantity(45);
+			inventory2.setSkuCode("samsung galaxy pro");
+			inventory2.setQuantity(0);
 
 			inventoryRepository.save(inventory1);
 			inventoryRepository.save(inventory2);
