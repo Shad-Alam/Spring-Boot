@@ -19,11 +19,12 @@ import java.util.UUID;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final WebClient webClient;
+    private final WebClient.Builder webClientBuilder;
 
-    public OrderService(OrderRepository orderRepository, WebClient webClient) {
+    public OrderService(OrderRepository orderRepository, WebClient.Builder webClientBuilder) {
         this.orderRepository = orderRepository;
-        this.webClient = webClient;
+        this.webClientBuilder = webClientBuilder;
+//        this.webClient = webClient;
     }
 
     public void placeOder(OrderRequest orderRequest){
@@ -42,12 +43,19 @@ public class OrderService {
                 .toList();
 
         // Call Inventory Service, and place order if product is in stock
-        InventoryResponse[] inventoryResponsesArray = webClient.get()
-                        .uri("http://localhost:8082/api/inventory",
-                                uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
-                                .retrieve()
-                                        .bodyToMono(InventoryResponse[].class)
-                                                .block();
+
+        InventoryResponse[] inventoryResponsesArray = webClientBuilder.build().get()
+                .uri("http://inventory-service/api/inventory",
+                        uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
+                .retrieve()
+                .bodyToMono(InventoryResponse[].class)
+                .block();
+//        InventoryResponse[] inventoryResponsesArray = webClient.get()
+//                        .uri("http://localhost:8082/api/inventory",
+//                                uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
+//                                .retrieve()
+//                                        .bodyToMono(InventoryResponse[].class)
+//                                                .block();
 
         boolean allProductsInStock = Arrays.stream(inventoryResponsesArray)
                 .allMatch(InventoryResponse::isInStock);
